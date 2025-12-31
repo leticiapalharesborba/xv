@@ -1,54 +1,79 @@
 function iniciarMagia() {
     const portal = document.getElementById('portal');
-    const clarao = document.getElementById('clarão-luxo');
-    const textoExp = document.getElementById('explosao-texto');
     const stage = document.getElementById('main-stage');
     const final = document.getElementById('etapa-final');
     const btnSom = document.getElementById('controle-som');
+    
+    // Referências de áudio
+    const somClique = document.getElementById('som-clique');
+    const somPorta = document.getElementById('som-porta');
+    const musicaFesta = document.getElementById('musica-festa');
 
-    document.getElementById('som-clique').play();
+    // TRUQUE PARA IPHONE: Inicia a música da festa "muda" no primeiro clique
+    // Isso faz o iOS entender que o usuário autorizou este áudio específico
+    musicaFesta.play().then(() => {
+        musicaFesta.pause();
+        musicaFesta.currentTime = 0;
+    }).catch(e => console.log("Aguardando interação"));
+
+    // Inicia os sons da primeira parte
+    somClique.play();
     portal.classList.add('aberto');
 
-    setTimeout(() => { document.getElementById('som-porta').play(); }, 500);
+    setTimeout(() => { 
+        somPorta.play(); 
+    }, 500);
 
+    // Efeito de Clarão e Explosão
     setTimeout(() => {
-        clarao.classList.add('ativo');
-        textoExp.classList.add('ativo');
+        document.getElementById('clarão-luxo').classList.add('ativo');
+        document.getElementById('explosao-texto').classList.add('ativo');
         
-        var end = Date.now() + (4 * 1000);
-        var colors = ['#ffffff', '#fcf6ba', '#bf953f'];
-        (function frame() {
-          confetti({ particleCount: 4, angle: 60, spread: 55, origin: { x: 0, y: 0.6 }, colors: colors });
-          confetti({ particleCount: 4, angle: 120, spread: 55, origin: { x: 1, y: 0.6 }, colors: colors });
-          if (Date.now() < end) requestAnimationFrame(frame);
-        }());
+        if (typeof confetti === 'function') {
+            confetti({ 
+                particleCount: 100, 
+                spread: 70, 
+                origin: { y: 0.6 }, 
+                colors: ['#ffffff', '#fcf6ba', '#bf953f'] 
+            });
+        }
     }, 6000);
 
+    // Limpeza da primeira etapa
     setTimeout(() => {
-        clarao.classList.remove('ativo');
-        textoExp.classList.remove('ativo');
-        stage.style.opacity = '0';
-        setTimeout(() => { stage.style.display = 'none'; }, 2000); 
+        document.getElementById('clarão-luxo').classList.remove('ativo');
+        document.getElementById('explosao-texto').classList.remove('ativo');
+        stage.style.display = 'none';
     }, 9500);
 
+    // ENTRADA DA SEGUNDA PARTE
     setTimeout(() => {
         final.style.display = 'flex'; 
+        
         setTimeout(() => { 
-            final.classList.add('visivel');
+            final.classList.add('visivel'); 
             iniciarCarrossel();
         }, 50);
-        
+
+        // Ativa o botão de controle e TOCA A MÚSICA (Agora o iPhone libera)
         btnSom.style.display = 'flex';
-        const musica = document.getElementById('musica-festa');
-        musica.play();
-        musica.volume = 0.7;
+        
+        // Tentativa reforçada de play para iOS
+        const promessaPlay = musicaFesta.play();
+        if (promessaPlay !== undefined) {
+            promessaPlay.catch(error => {
+                // Se ainda assim o iPhone bloquear, o botão de som servirá de backup
+                console.log("iPhone bloqueou o autoplay. O usuário precisará tocar no ícone de som.");
+            });
+        }
     }, 10500);
 }
 
 function iniciarCarrossel() {
     const fotos = document.querySelectorAll('.foto-carrossel');
     let index = 0;
-    if (fotos.length <= 1) return;
+    if (fotos.length < 2) return;
+    
     setInterval(() => {
         fotos[index].classList.remove('active');
         index = (index + 1) % fotos.length;
@@ -58,12 +83,13 @@ function iniciarCarrossel() {
 
 function alternarSom() {
     const musica = document.getElementById('musica-festa');
-    const btnSom = document.getElementById('controle-som');
+    const btn = document.getElementById('controle-som');
+    
     if (musica.paused) {
         musica.play();
-        btnSom.innerHTML = "🔊";
+        btn.innerHTML = "🔊";
     } else {
         musica.pause();
-        btnSom.innerHTML = "🔇";
+        btn.innerHTML = "🔇";
     }
 }
