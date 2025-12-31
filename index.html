@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>15 Anos - Letícia</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Playfair+Display:ital,wght@0,700;1,700&family=Great+Vibes&family=Cinzel:wght@400;700&family=Montserrat:wght@300;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <link rel="stylesheet" href="style.css?v=final_ajuste">
+</head>
+<body>
+
+    <audio id="som-clique" src="https://www.soundjay.com/buttons/sounds/button-37a.mp3"></audio>
+    <audio id="som-porta" src="porta_abrindo.mp3"></audio>
+    <audio id="musica-festa" src="musica_festa.mp3" loop></audio>
+
+    <div id="video-container">
+        <video autoplay muted loop playsinline id="video-bg">
+            <source src="video_fundo.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <div id="clarão-luxo"></div>
+    <div id="explosao-texto">MEUS 15 ANOS</div>
+
+    <div class="stage" id="main-stage">
+        <div class="porta-castelo" id="portal">
+            <div class="suspense-container">
+                <div class="foto-interna"></div> 
+            </div>
+            <div class="banda banda-esq">
+                <span class="texto-aba">s e j a b e m v i n d o</span>
+            </div>
+            <div id="selo" onclick="iniciarMagia()">LP</div>
+            <div class="banda banda-dir">
+                <span class="texto-aba">m e u s 1 5 a n o s</span>
+            </div>
+        </div>
+    </div>
+
+    <div id="etapa-final">
+        <div class="carrossel-container">
+            <div class="carrossel-slides">
+                <img src="foto1.jpg" class="foto-carrossel active">
+                <img src="foto2.jpg" class="foto-carrossel">
+                <img src="foto3.jpg" class="foto-carrossel">
+            </div>
+        </div>
+
+        <h1 class="nome-leticia">Letícia</h1>
+        
+        <div class="bloco-info-evento">
+            <p class="versiculo">"A relva murcha, e as flores caem, mas a palavra do nosso Deus permanece para sempre" <br><span>(Isaías 40:8)</span></p>
+            <p class="data-hora">01 de Março 2026 às 19h</p>
+            <p class="local-nome">Ballroom Barra Olímpica</p>
+        </div>
+        
+        <div class="container-botoes-redondos">
+            <div class="item-botao">
+                <a href="https://maps.app.goo.gl/GhD64qpjhKX6bbaw8" target="_blank" class="btn-circular">📍</a>
+                <span>LOCAL</span>
+            </div>
+            <div class="item-botao">
+                <a href="LINK_WHATSAPP" target="_blank" class="btn-circular">✅</a>
+                <span>CONFIRME SUA PRESENÇA</span>
+            </div>
+            <div class="item-botao">
+                <a href="presentes.html" target="_blank" class="btn-circular">🎁</a>
+                <span>PRESENTES</span>
+            </div>
+        </div>
+
+        <div class="bloco-rodape">
+            <p>Traje: Esporte fino</p>
+            <p class="confirmacao-texto">Confirme a sua presença até dia 01/02/2026</p>
+        </div>
+    </div>
+
+    <div id="controle-som" onclick="alternarSom()">🔊</div>
+
+    <script src="script.js"></script>
+</body>
+</html>

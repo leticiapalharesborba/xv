@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sugestões de Presente - Letícia</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ouro: linear-gradient(45deg, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+        }
+
+        /* Fundo fixo para evitar quebras ao rolar */
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            color: white;
+            font-family: 'Montserrat', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            width: 100vw;
+            overflow: hidden; /* Trava a tela principal */
+        }
+
+        /* Moldura principal com ajuste de tamanho */
+        .container {
+            width: 85%; /* Deixa margem nas laterais */
+            max-width: 350px;
+            max-height: 85vh; /* Garante que nunca corte em cima ou embaixo */
+            text-align: center;
+            border: 2px solid #fcf6ba;
+            padding: 20px;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            display: flex;
+            flex-direction: column;
+            box-sizing: border-box;
+            overflow-y: auto; /* Se o conteúdo for grande, ele rola aqui dentro */
+        }
+
+        /* Estilização da barra de rolagem interna (mais discreta) */
+        .container::-webkit-scrollbar { width: 3px; }
+        .container::-webkit-scrollbar-thumb { background: #fcf6ba; border-radius: 10px; }
+
+        h1 {
+            font-family: 'Cinzel', serif;
+            background: var(--ouro);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 1.4rem;
+            margin: 0 0 20px 0;
+            text-transform: uppercase;
+        }
+
+        .info-item {
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(252, 246, 186, 0.2);
+        }
+
+        .label {
+            display: block;
+            color: #fcf6ba;
+            font-weight: bold;
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            margin-bottom: 4px;
+            text-transform: uppercase;
+        }
+
+        .valor {
+            font-size: 1rem;
+            color: #fff;
+            font-weight: 300;
+        }
+
+        .voltar-btn {
+            margin-top: 10px;
+            text-decoration: none;
+            color: #fcf6ba;
+            font-size: 0.7rem;
+            border: 1px solid #fcf6ba;
+            padding: 12px 25px;
+            border-radius: 25px;
+            display: inline-block;
+            transition: 0.3s;
+            flex-shrink: 0; /* Não deixa o botão amassar */
+        }
+
+        .voltar-btn:hover {
+            background: var(--ouro);
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Sugestões de Presente</h1>
+
+        <div class="info-item">
+            <span class="label">Sapato</span>
+            <span class="valor">Tamanho 37</span>
+        </div>
+
+        <div class="info-item">
+            <span class="label">Roupa</span>
+            <span class="valor">Tamanho M ou 40</span>
+        </div>
+
+        <div class="info-item">
+            <span class="label">Acessórios</span>
+            <span class="valor">Preferência por Dourados</span>
+        </div>
+
+        <div class="info-item">
+            <span class="label">Opções Extras</span>
+            <span class="valor">Bolsas e Perfumes</span>
+        </div>
+
+        <div>
+            <a href="index.html" class="voltar-btn">← VOLTAR AO CONVITE</a>
+        </div>
+    </div>
+
+</body>
+</html>
