@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presença Confirmada - Letícia</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;600&family=Great+Vibes&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ouro: linear-gradient(45deg, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            color: white;
+            font-family: 'Montserrat', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            width: 100vw;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .container {
+            width: 85%;
+            max-width: 400px;
+            padding: 40px 20px;
+            border: 2px solid #fcf6ba;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            box-shadow: 0 0 30px rgba(191, 149, 63, 0.3);
+        }
+
+        .icone-sucesso {
+            font-size: 50px;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        h1 {
+            font-family: 'Cinzel', serif;
+            background: var(--ouro);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .mensagem {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #fcf6ba;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .letra-assinatura {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2.5rem;
+            background: var(--ouro);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: block;
+            margin-bottom: 30px;
+        }
+
+        .btn-voltar {
+            text-decoration: none;
+            color: #000;
+            background: var(--ouro);
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            display: inline-block;
+            transition: 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        }
+
+        .btn-voltar:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px #fcf6ba;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <span class="icone-sucesso">✨</span>
+        <h1>Tudo pronto!</h1>
+        
+        <p class="mensagem">
+            Sua presença foi confirmada com sucesso. <br>
+            Prepare o coração para uma noite mágica e inesquecível!
+        </p>
+
+        <span class="letra-assinatura">Letícia</span>
+
+        <a href="index.html" class="btn-voltar">VOLTAR AO CONVITE</a>
+    </div>
+
+</body>
+</html>
